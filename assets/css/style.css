@@ -3,3 +3,10 @@
     margin: 0;
     padding: 0;
 }
+
+#weatherGallery {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
