@@ -1,23 +1,115 @@
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  border-radius: 8px;
 }
 
+@font-face {
+    font-family:"mont";
+    src: url(./../font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+body {
+    border-radius: 50%;
+    font-family:"mont";
+}
 body section {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
 }
+h1 {
+    text-align: center;
+    font-family: "mont";
+    font-size: 44px;
+    background-color: lightblue;
+    opacity: 90%;
+    color: black;
+}
+.inputCity{
+    border: none;
+}
+.pint{
+    margin-left: 39%;
+}
+.btn {
+    
+    padding: 4px 8px;
+    border-radius: 100%;
+    background-color: lightblue;
+    border: none;
+}
+.btn:hover {
+    color: white;
+    background-color: black;
+}
+:focus{
+    outline: none;
+}
+.weather-container p:nth-of-type(2){
+    background-color: lightblue;
+    opacity: 80%;
+    width: 25%;
+    margin: auto;
+    font-size: 40px;
+    text-align: center;
+    background-image: url(./../img/rainy.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.weather-container p:nth-of-type(1){
+    margin: auto;
+    background-color: lightblue;
+    opacity: 70%;
+    width: fit-content;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.weather-container p:nth-of-type(3){
+    font-size: 24px;
+    background-color: lightblue;
+    opacity: 70%;
+    width: 100%;
+    opacity:70%;
+    color: black;
+    text-align: left;
+}
+.weather-container p:nth-of-type(4){
+    font-size: 24px;
+    background-color: lightblue;
+    opacity: 70%;
+    width: 100%;
+    opacity:70%;
+    color: black;
+    text-align: left;
+}
+
 body div.weather-container:nth-of-type(1) {
   margin-top: 1vh;
-  font-family: sans-serif;
   font-size: 22px;
 }
 body div.weather-container:nth-of-type(2) {
   margin-top: 1vh;
-  font-size: 18px;
   font-family: sans-serif;
 }
+.forecast-container {
+    text-align: center; 
+}
 
-/*# sourceMappingURL=style.css.map */
+table {
+    background-color: lightblue;
+    opacity: 70%;
+    color: black;
+    width: 60%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+    margin: auto;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 8px; 
+}
+th {
+    background-color: #f2f2f2;  
+}

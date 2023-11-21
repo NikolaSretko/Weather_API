@@ -8,21 +8,24 @@
   </head>
 
   <body onload="getLocationOnLoad()">
-    <h1>Wetteranzeige</h1>
-    <div id="weatherData">
-      <!-- Hier werden die Wetterdaten angezeigt -->
-    </div>
-    <section id="weatherGallery">
-      <!-- Hier werden die Wettercontainer hinzugefügt -->
-    </section>
+    <h1>WetterWiz</h1>
+    <div id="weatherData"></div>
     <form class="pint" onsubmit="return false;">
-      <input type="text" name="city" id="city" />
       <input
+        class="inputCity"
+        type="text"
+        name="city"
+        id="city"
+        placeholder="City"
+      />
+      <input
+        class="btn"
         type="submit"
         value="+"
         onclick="fetchWeather(document.getElementById('city').value)"
       />
     </form>
+    <section id="weatherGallery"></section>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

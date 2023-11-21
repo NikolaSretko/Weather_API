@@ -21,7 +21,6 @@ function fetchWeather(city) {
 
             addWeatherContainer(data.name, temperatureCelsius, data.weather[0].description, sunsetTime);
 
-            // Hier die Wettervorhersage für die eingegebene Stadt abrufen
             fetchForecast(city);
         })
         .catch(error => {
@@ -76,30 +75,62 @@ function addWeatherContainer(name, temp, description, sunset) {
     weatherContainer.appendChild(descriptionElement);
 
     const sunsetElement = document.createElement('p');
-    sunsetElement.textContent = `Sonnenuntergang: ${sunset} Uhr`;
+    sunsetElement.textContent = `Sunset: ${sunset} Uhr`;
     weatherContainer.appendChild(sunsetElement);
 
     weatherGallery.appendChild(weatherContainer);
 }
 
-function addForecastContainer(date, temp, description) {
+function addForecastContainer(dateString, temp, description) {
     const forecastContainer = document.createElement('div');
     forecastContainer.classList.add('forecast-container');
 
-    const dateElement = document.createElement('p');
-    dateElement.textContent = `Datum: ${date}`;
-    forecastContainer.appendChild(dateElement);
+    const table = document.createElement('table');
 
-    const temperatureElement = document.createElement('p');
-    temperatureElement.textContent = `Temperatur: ${temp} °C`;
-    forecastContainer.appendChild(temperatureElement);
+    const row = table.insertRow();
+    const dateCell = row.insertCell(0);
+    const tempCell = row.insertCell(1);
+    const descCell = row.insertCell(2);
 
-    const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = `Wetter: ${description}`;
-    forecastContainer.appendChild(descriptionElement);
+    // Datum im Format "21.11.2023" aufteilen und umwandeln
+    const dateParts = dateString.split('.');
+    const day = parseInt(dateParts[0]);
+    const month = parseInt(dateParts[1]) - 1; // Monate in JavaScript sind 0-basiert
+    const year = parseInt(dateParts[2]);
 
+    // Hier wird das Datum manuell erstellt
+    const dateObject = new Date(year, month, day);
+
+    // Hier formatierst du das Datum
+    const formattedDate = dateObject.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' });
+
+    const weatherImageMap = {
+        'mist': 'url(./assets/img/bewolkt.jpg)',
+        'rain': 'url(./assets/img/raegen.jpg)',
+        'sun': 'url(./assets/img/klarer%20himmel.jpg)',
+        'snow': 'url(./assets/img/schnee.jpg)'
+    };
+
+    let backgroundUrl = '';
+    for (const keyword in weatherImageMap) {
+        if (description.toLowerCase().includes(keyword)) {
+            backgroundUrl = weatherImageMap[keyword];
+            console.log(keyword);
+        }
+    }
+
+    document.body.style.background = backgroundUrl;
+    console.log(backgroundUrl);
+
+    dateCell.textContent = `Day ${formattedDate}`;
+    tempCell.textContent = ` ${temp}°C`;
+    descCell.textContent = `Wetter: ${description}`;
+
+    forecastContainer.appendChild(table);
     weatherGallery.appendChild(forecastContainer);
 }
+
+
 
 function getLocationOnLoad() {
     if (navigator.geolocation) {
@@ -123,7 +154,6 @@ function showWeather(position) {
 
             addWeatherContainer(data.name, temperatureCelsius, data.weather[0].description, sunsetTime);
 
-            // Hier die Wettervorhersage für den aktuellen Standort abrufen
             fetchForecast(data.name);
         })
         .catch(error => {
