@@ -121,6 +121,9 @@ function addForecastContainer(dateString, temp, description) {
 
     document.body.style.background = backgroundUrl;
     console.log(backgroundUrl);
+    document.body.style.background = backgroundUrl;
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundSize = 'cover';
 
     dateCell.textContent = `Day ${formattedDate}`;
     tempCell.textContent = ` ${temp}°C`;
