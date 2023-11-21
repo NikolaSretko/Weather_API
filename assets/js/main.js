@@ -1,6 +1,6 @@
 const weatherGallery = document.getElementById('weatherGallery');
 
-function fetchProducts(city) {
+function fetchWeather(city) {
     const apiKey = '3eeeb9eff3a20ebbbbace7cdbd9023df';
     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
     const apiRequest = `${apiUrl}?q=${city}&appid=${apiKey}`;
