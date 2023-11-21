@@ -16,7 +16,7 @@ function fetchWeather(city) {
             }
         })
         .then(data => {
-            const temperatureCelsius = parseFloat((data.main.temp - 273.15).toFixed(2));
+            const temperatureCelsius = parseFloat((data.main.temp - 273.15).toFixed(0));
             const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
 
             addWeatherContainer(data.name, temperatureCelsius, data.weather[0].description, sunsetTime);
@@ -45,7 +45,7 @@ function fetchForecast(city) {
 
             for (let i = 0; i < forecastData.length; i += 8) {
                 const forecastDate = new Date(forecastData[i].dt * 1000).toLocaleDateString();
-                const forecastTemperature = parseFloat((forecastData[i].main.temp - 273.15).toFixed(2));
+                const forecastTemperature = parseFloat((forecastData[i].main.temp - 273.15).toFixed(0));
                 const forecastDescription = forecastData[i].weather[0].description;
 
                 addForecastContainer(forecastDate, forecastTemperature, forecastDescription);
@@ -118,7 +118,7 @@ function showWeather(position) {
     fetch(apiRequest)
         .then(response => response.json())
         .then(data => {
-            const temperatureCelsius = parseFloat((data.main.temp - 273.15).toFixed(2));
+            const temperatureCelsius = parseFloat((data.main.temp - 273.15).toFixed(0));
             const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
 
             addWeatherContainer(data.name, temperatureCelsius, data.weather[0].description, sunsetTime);
