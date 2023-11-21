@@ -9,14 +9,15 @@ body section {
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
 }
-body section body #weatherGallery:nth-of-type(1) {
-  margin-top: 3vh;
+body div.weather-container:nth-of-type(1) {
+  margin-top: 1vh;
   font-family: sans-serif;
   font-size: 22px;
 }
-body section body #weatherGallery:nth-of-type(2) {
-  margin-top: 2vh;
+body div.weather-container:nth-of-type(2) {
+  margin-top: 1vh;
   font-size: 18px;
+  font-family: sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
