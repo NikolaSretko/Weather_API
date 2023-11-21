@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: "mont";
+    src: url(./../font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
 body {
     section {
     display: grid;
