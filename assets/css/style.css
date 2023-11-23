@@ -113,3 +113,21 @@ th, td {
 th {
     background-color: #f2f2f2;  
 }
+/* CSS-Styling für das Video-Element */
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Stellt sicher, dass das Video im Hintergrund bleibt */
+}
+
+/* CSS-Styling für den Rest der Seite */
+body {
+    margin: 0; /* Entfernt den Seitenrand */
+    overflow: hidden; /* Verhindert Scrollen */
+}
+
+/* Fügen Sie hier weitere benutzerdefinierte Styles für den Inhalt der Seite hinzu */
