@@ -24,17 +24,24 @@ h1 {
     opacity: 90%;
     color: black;
 }
-.inputCity{
-    border: none;
-}
+    .inputCity {
+        border: none;
+        padding: 10px 25px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
 .pint{
-    margin-left: 30%;
+    margin: auto;
+    display: grid;
+    place-items: center; /* Add this line to center the input field */
 }
 .btn {
     
     padding: 4px 8px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: lightblue;
+    padding: 20px 25px;
     border: none;
 }
 .btn:hover {
@@ -129,5 +136,3 @@ body {
     margin: 0; /* Entfernt den Seitenrand */
     overflow: hidden; /* Verhindert Scrollen */
 }
-
-/* Fügen Sie hier weitere benutzerdefinierte Styles für den Inhalt der Seite hinzu */
